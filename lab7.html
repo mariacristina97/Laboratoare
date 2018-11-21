@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<script>
+//1
+var a = 1;
+function b() {
+a = 10;
+return;
+}
+b();
+console.log("Ex 1:");
+console.log("a=" + a);
+
+//2
+console.log("\nEx 2:");
+for (var i = 0; i < 5; i++) {
+	(function(index){
+setTimeout(function() { console.log(i); }, i * 1000 );
+})(i);
+}
+
+//3
+console.log("\nEx 3:");
+try {
+setTimeout(function(){
+throw new Error('example')
+}, 1000)
+} catch (err) {
+console.log(err)
+}
+</script>
+
+</html>
