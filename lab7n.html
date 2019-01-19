@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Laborator 7</title>
+	</head>
+<body>
+	<script>
+		var a = 1; 
+		function b() {
+			a = 10; 
+			return;
+		}
+		b(); 
+		console.log("Ex 1");
+		console.log("a= " + a);
+		console.log("\nEx 2");
+		for (var i = 0; i < 5; i++) { 
+			setTimeout((function() {console.log(i); }) (), i * 1000 );
+		}
+		console.log("\nEx 3");
+		setTimeout(function() {
+		try {
+			throw new Error('Error');
+		} catch(err) {
+			console.log(err);
+		}
+		}, 1000);
+		
+		console.log("\nEx 4");
+		class Animal {
+			constructor(type, color) {
+				this.color = color;
+				this.type = type;
+			}
+			getColor() {
+				return this.color;
+			}
+		}
+		class Fish extends Animal {
+			constructor(fishType) {
+				super(fishType, 'yellow');
+			}
+			getFishType() {
+				return super.type;
+			}
+		}
+		class Dog extends Animal {
+			constructor(dogType) {
+				super(dogType, 'white');
+			}
+			getDogType() {
+				return super.type;
+			}
+		}
+		class DogType extends Dog {
+			constructor(typeName, furColor) {
+				super(typeName);
+				this.furColor = furColor;
+			}
+			getFurColor() {
+				return this.furColor;
+			}
+		}
+		console.log("\nEx 5");
+		function non_blocking() {
+  		setTimeout(function() {
+    		var a = 0;
+    		setTimeout(() => {
+	      		for (let i = 0; i < 1000; i++) {
+	        		setTimeout(() => {
+	          			for (let j = 0; j < i * 1000; j++) {
+	            			if (i < j) {
+	              				a++;
+	            			}
+	          			}
+	        		}, 0);
+	      		}
+    		}, 0);
+  		}, 0);
+	}
+	non_blocking();
+	</script>
+
+</body>
+</html>
